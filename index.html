@@ -32,7 +32,7 @@
         display: flex;
         flex-direction: column;
         align-items: center; /* Centers the words relative to each other */
-        gap: 12px; /* INCREASE/DECREASE THIS for vertical space between words */
+        gap: 4px; /* INCREASE/DECREASE THIS for vertical space between words */
     }
 
     .main-logo {
@@ -43,7 +43,7 @@
     h1 { 
         font-size: 3.5rem; 
         margin: 0; 
-        letter-spacing: 4px; 
+        letter-spacing: 2px; 
         color: #4db8ff;
         line-height: 1; /* Eliminates hidden vertical padding */
     }
@@ -123,7 +123,7 @@
     
     <footer style="margin-top: 3rem; font-size: 0.8rem; color: #666;">
         <p>&copy; <span id="year"></span> Numagna Technologies. All rights reserved.</p>
-        <!-- <a href="/signalsentinel/privacy">Privacy Policy</a> -->
+        <a href="/signalsentinel/privacy.html" style="color: #666; text-decoration: underline;">Privacy Policy</a>
     </footer>        
     <script>
             document.getElementById("year").textContent = new Date().getFullYear();
