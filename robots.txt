@@ -1,0 +1,7 @@
+User-agent: *
+Disallow: /signalsentinel/privacy.html
+
+# Optional: If you want to hide the entire folder until launch
+# Disallow: /signalsentinel/
+
+Sitemap: https://numagnatech.com/sitemap.xml
