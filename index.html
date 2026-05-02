@@ -1,125 +1,344 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
+    <!-- UI Refresh -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Numagna Technologies | Coming Soon</title>
-    <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="shortcut icon" href="/favicon.ico" />
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-    <link rel="manifest" href="/site.webmanifest" />
-<style>
-    body { 
-        margin: 0; padding: 0; display: flex; justify-content: center; 
-        align-items: center; min-height: 100vh; background-color: #000000; 
-        color: #ffffff; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-        overflow-x: hidden; /* Prevent horizontal scroll */
-        will-change: transform;
-        -webkit-font-smoothing: antialiased;
-    }
-    .container { text-align: center; padding: 20px; width: 100%; box-sizing: border-box; }
+    <title>Numagna Technologies | Always-On A.I.</title>
     
-    /* Branding Section */
-    .main-branding-container {
-        display: flex;
-        align-items: center; /* This centers the logo vertically against the text block */
-        justify-content: center;
-        gap: 15px; /* Space between the logo and the text */
-        margin-bottom: 2rem;
-        flex-wrap: wrap; /* Allow wrapping on very small screens if needed */
-    }
-
-    .text-block {
-        display: flex;
-        flex-direction: column;
-        align-items: center; /* Centers the words relative to each other */
-        gap: 4px; /* INCREASE/DECREASE THIS for vertical space between words */
-    }
-
-    .main-logo {
-        height: 115px; /* Sized to match the combined height of the text */
-        width: auto;
-    }
-
-    h1 { 
-        font-size: 3.5rem; 
-        margin: 0; 
-        letter-spacing: 2px; 
-        color: #1e88e5;
-        line-height: 1; /* Eliminates hidden vertical padding */
-    }
-
-    .subtitle { 
-        font-size: 1.5rem; 
-        font-weight: 300;
-        letter-spacing: 12px;
-        margin: 0;
-        padding-left: 12px; /* Counteracts letter-spacing to keep text centered */
-        color: #ffffff;
-        text-transform: uppercase;
-        line-height: 1;
-    }
-
-    /* Mobile Responsiveness */
-    @media (max-width: 768px) {
-        .main-logo {
-            height: 80px;
-        }
-
-        h1 {
-            font-size: 2.5rem;
-            letter-spacing: 2px;
-        }
-
-        .subtitle {
-            font-size: 1.1rem;
-            letter-spacing: 8px;
-            padding-left: 8px;
-        }
-    }
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
     
-    @media (max-width: 480px) {
-        h1 {
-            font-size: 2rem;
-        }
-        
-        .subtitle {
-            font-size: 0.9rem;
-            letter-spacing: 6px;
-            padding-left: 6px;
-        }
-    }
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
 
-    /* Supporting Content */
-    .tagline { font-size: 1.2rem; color: #aaaaaa; margin-top: 1.5rem; }
-    .contact { margin-top: 2rem; }
-    a { color: #1e88e5; text-decoration: none; border-bottom: 1px solid transparent; transition: border-color 0.3s; }
-    a:hover { border-bottom-color: #1e88e5; }
-</style>
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
-<div class="container">
-    <div class="main-branding-container">
-        <img src="/favicon-96x96.png" alt="Numagna Logo" class="main-logo">
-        
-        <div class="text-block">
-            <h1>NUMAGNA</h1>
-            <p class="subtitle">TECHNOLOGIES</p>
-        </div>
-    </div>
-
-    <p class="tagline">Innovating the Future. Coming Soon.</p>
-    
-    <div class="contact">
-        <p>Contact: <a href="mailto:contact@numagnatech.com">contact@numagnatech.com</a></p>
-    </div>
-    
-    <footer style="margin-top: 3rem; font-size: 0.8rem; color: #666;">
-        <p>&copy; <span id="year"></span> Numagna Technologies. All rights reserved.</p>
-    </footer>        
+    <!-- Tailwind Config & Custom Styles -->
     <script>
-            document.getElementById("year").textContent = new Date().getFullYear();
-        </script>
-    </div>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            blue: '#0055ff',
+                            light: '#3388ff',
+                            dark: '#0033aa',
+                        }
+                    },
+                    animation: {
+                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'fade-in': 'fadeIn 1s ease-out forwards',
+                    },
+                    keyframes: {
+                        fadeIn: {
+                            '0%': { opacity: 0, transform: 'translateY(20px)' },
+                            '100%': { opacity: 1, transform: 'translateY(0)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background-color: #000000;
+            color: #ffffff;
+            overflow-x: hidden;
+        }
+
+        .glass-nav {
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        /* Subtle radial gradients for product highlighting */
+        .glow-bg-blue {
+            background: radial-gradient(circle at center, rgba(0, 85, 255, 0.15) 0%, rgba(0, 0, 0, 0) 70%);
+        }
+
+        .product-card {
+            background: linear-gradient(180deg, rgba(20, 20, 20, 1) 0%, rgba(10, 10, 10, 1) 100%);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        /* Image fallback styling */
+        img {
+            color: transparent; /* Hides broken image alt text clutter if missing locally */
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 glass-nav transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo -->
+                <div class="flex-shrink-0 flex items-center cursor-pointer" onclick="window.scrollTo(0,0)">
+                    <!-- Uses the uploaded master logo -->
+                    <img src="./numagna_master_logov_v1_2_duo_tone_blue.png" alt="Numagna Logo" class="h-8 w-auto mr-3" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjMDA1NWZmIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PHBhdGggZD0iTTEyIDJMMiA3bDEwIDUgMTAtNS0xMC01eiIvPjxwYXRoIGQ9Ik0yIDE3bDEwIDUgMTAtNSIvPjxwYXRoIGQ9Ik0yIDEybDEwIDUgMTAtNSIvPjwvc3ZnPg=='">
+                    <span class="text-xl font-semibold tracking-wide text-white hidden sm:block">
+                        NUMAGNA
+                    </span>
+                </div>
+
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#sidekick" class="text-gray-400 hover:text-white transition duration-300 text-sm font-medium">Sidekick</a>
+                    <a href="#sentinel" class="text-gray-400 hover:text-white transition duration-300 text-sm font-medium">Signal Sentinel</a>
+                    <a href="#contact" class="text-gray-400 hover:text-white transition duration-300 text-sm font-medium">Contact</a>
+                    <button class="bg-brand-blue text-white px-5 py-2 rounded-full text-sm font-medium hover:bg-brand-light transition duration-300">
+                        Get Early Access
+                    </button>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-gray-400 hover:text-white focus:outline-none">
+                        <i data-lucide="menu" class="w-6 h-6"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Panel -->
+        <div id="mobile-menu" class="hidden md:hidden bg-zinc-900 border-t border-white/5 absolute w-full">
+            <div class="px-4 pt-2 pb-6 space-y-2">
+                <a href="#sidekick" class="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-white/5">Sidekick</a>
+                <a href="#sentinel" class="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-white/5">Signal Sentinel</a>
+                <a href="#contact" class="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-white/5">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden min-h-[90vh] flex items-center justify-center">
+        <!-- Glowing background effect behind hero -->
+        <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-brand-blue/20 rounded-full blur-[150px] pointer-events-none animate-pulse-slow"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+            <div class="opacity-0 animate-fade-in">
+                <h1 class="text-5xl sm:text-7xl lg:text-8xl font-bold tracking-tighter text-white mb-6">
+                    Intelligence<br/>
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-light to-brand-blue">Amplified</span>
+                </h1>
+                <p class="text-lg sm:text-xl text-gray-400 mb-10 max-w-2xl mx-auto font-light leading-relaxed">
+                    Numagna Technologies bridges the gap between human context and machine capability. Experience context-aware AI and robust connectivity tools designed for the modern frontier.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="#sidekick" class="px-8 py-4 rounded-full bg-white text-black font-semibold hover:bg-gray-200 transition duration-300">
+                        Discover Sidekick
+                    </a>
+                    <a href="#sentinel" class="px-8 py-4 rounded-full bg-zinc-900 text-white font-semibold border border-white/10 hover:border-white/30 transition duration-300">
+                        Explore Sentinel
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Product 1: Sidekick with Vision Bridge -->
+    <section id="sidekick" class="py-24 relative border-t border-white/5 bg-zinc-950/50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="lg:grid lg:grid-cols-2 gap-16 items-center">
+                
+                <!-- Text Content -->
+                <div class="order-2 lg:order-1 mt-12 lg:mt-0">
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-blue/10 border border-brand-blue/20 mb-6 text-sm font-medium text-brand-light">
+                        <i data-lucide="sparkles" class="w-4 h-4"></i>
+                        Always-On, Always-Available A.I.
+                    </div>
+                    <h2 class="text-4xl sm:text-5xl font-bold tracking-tight mb-4">
+                        Sidekick <br/>
+                        <span class="text-gray-500 text-3xl sm:text-4xl">with Vision Bridge</span>
+                    </h2>
+                    <p class="text-gray-400 text-lg leading-relaxed mb-8">
+                        The first A.I. companion that truly sees what you see. Powered by our proprietary Screen-Aware Vision Bridge MCP, Sidekick understands your active context across any application, eliminating the need to explain what you're working on.
+                    </p>
+                    
+                    <ul class="space-y-6">
+                        <li class="flex items-start">
+                            <div class="flex-shrink-0 w-10 h-10 rounded-lg bg-zinc-900 border border-white/10 flex items-center justify-center mt-1">
+                                <i data-lucide="monitor-smartphone" class="w-5 h-5 text-brand-light"></i>
+                            </div>
+                            <div class="ml-4">
+                                <h4 class="text-white font-semibold text-lg">Screen-Aware MCP</h4>
+                                <p class="text-gray-500 mt-1">Machine Context Protocol securely bridges your visual workspace to our language models in real-time.</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <div class="flex-shrink-0 w-10 h-10 rounded-lg bg-zinc-900 border border-white/10 flex items-center justify-center mt-1">
+                                <i data-lucide="zap" class="w-5 h-5 text-brand-light"></i>
+                            </div>
+                            <div class="ml-4">
+                                <h4 class="text-white font-semibold text-lg">Always Available</h4>
+                                <p class="text-gray-500 mt-1">Running silently in the background, Sidekick is ready to analyze, generate, and assist the moment you call it.</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Visual Concept -->
+                <div class="order-1 lg:order-2 relative group">
+                    <div class="absolute inset-0 bg-brand-blue/20 blur-3xl rounded-full transform group-hover:scale-110 transition-transform duration-700"></div>
+                    <div class="relative product-card rounded-3xl p-2 overflow-hidden shadow-2xl">
+                        <!-- Abstract Mockup of Vision Bridge -->
+                        <div class="bg-zinc-950 rounded-2xl p-6 aspect-square sm:aspect-video lg:aspect-square flex flex-col justify-between relative overflow-hidden border border-white/5">
+                            <div class="flex justify-between items-center z-10">
+                                <div class="flex gap-2">
+                                    <div class="w-3 h-3 rounded-full bg-red-500/50"></div>
+                                    <div class="w-3 h-3 rounded-full bg-yellow-500/50"></div>
+                                    <div class="w-3 h-3 rounded-full bg-green-500/50"></div>
+                                </div>
+                                <div class="px-3 py-1 rounded-full bg-white/10 text-xs text-white/70 backdrop-blur-md">Vision_Bridge.exe</div>
+                            </div>
+                            
+                            <div class="absolute inset-0 flex items-center justify-center z-0 opacity-30">
+                                <!-- Uses the brand logo lightly in the background of the mockup -->
+                                <img src="./numagna_master_logov_v1_2_duo_tone_blue.png" alt="" class="w-48 h-48 filter grayscale opacity-20">
+                            </div>
+
+                            <div class="relative z-10 mt-auto">
+                                <div class="w-full bg-black/50 backdrop-blur-md rounded-xl p-4 border border-white/10 font-mono text-sm text-green-400">
+                                    > _Analyzing screen context...<br/>
+                                    > _Context acquired: Code editor active.<br/>
+                                    > _Sidekick: "I see you're working on the API endpoint. Need help optimizing that query?"
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Product 2: Signal Sentinel -->
+    <section id="sentinel" class="py-24 relative bg-black border-t border-white/5">
+        <div class="glow-bg-blue absolute inset-0 pointer-events-none opacity-50"></div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="lg:grid lg:grid-cols-2 gap-16 items-center">
+                
+                <!-- Visual Concept -->
+                <div class="relative group mb-12 lg:mb-0">
+                    <div class="relative product-card rounded-3xl p-8 lg:p-16 flex items-center justify-center shadow-2xl overflow-hidden border border-white/10">
+                        <!-- Background radar sweep effect -->
+                        <div class="absolute inset-0 opacity-20">
+                            <div class="w-[200%] h-[200%] border border-blue-500/30 rounded-full absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"></div>
+                            <div class="w-[150%] h-[150%] border border-blue-500/20 rounded-full absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"></div>
+                            <div class="w-full h-full border border-blue-500/10 rounded-full absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 animate-ping"></div>
+                        </div>
+                        
+                        <!-- Uploaded Signal Sentinel Logo -->
+                        <img src="./signal_sentinel_logo_v2.png" alt="Signal Sentinel Logo" class="relative z-10 w-48 h-48 drop-shadow-[0_0_30px_rgba(0,85,255,0.6)] transform group-hover:scale-105 transition-transform duration-500" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjMDA1NWZmIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PHBhdGggZD0iTTEyIDIyczgtNCA4LTEwVjVsLTgtMy04IDN2N2MwIDYgOCAxMCA4IDEweiIvPjxwb2x5bGluZSBwb2ludHM9IjkgMTIgMTEgMTQgMTUgMTAiLz48L3N2Zz4='">
+                    </div>
+                </div>
+
+                <!-- Text Content -->
+                <div>
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-zinc-900 border border-white/10 mb-6 text-sm font-medium text-gray-300">
+                        <i data-lucide="radio" class="w-4 h-4 text-brand-blue"></i>
+                        Mission-Critical Monitoring
+                    </div>
+                    <h2 class="text-4xl sm:text-5xl font-bold tracking-tight mb-4 text-white">
+                        Signal Sentinel
+                    </h2>
+                    <p class="text-gray-400 text-lg leading-relaxed mb-8">
+                        Never lose connection unknowingly. Signal Sentinel is a robust cellphone signal loss monitor designed to alert you instantly when connectivity drops. Whether you're in a remote location, a dense building, or moving between cell zones, Sentinel keeps you informed.
+                    </p>
+                    
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                        <div class="bg-zinc-900/50 border border-white/5 p-5 rounded-2xl">
+                            <i data-lucide="bell-ring" class="w-6 h-6 text-brand-light mb-3"></i>
+                            <h4 class="text-white font-semibold mb-1">Instant Alerts</h4>
+                            <p class="text-gray-500 text-sm">Customizable audio and visual notifications the moment decibel levels drop below usable thresholds.</p>
+                        </div>
+                        <div class="bg-zinc-900/50 border border-white/5 p-5 rounded-2xl">
+                            <i data-lucide="bar-chart-2" class="w-6 h-6 text-brand-light mb-3"></i>
+                            <h4 class="text-white font-semibold mb-1">Coverage Mapping</h4>
+                            <p class="text-gray-500 text-sm">Log historical signal data to identify dead zones in your workspace or daily commute.</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action / Banner Section -->
+    <section id="contact" class="py-24 border-t border-white/10 bg-zinc-950 relative overflow-hidden">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+            
+            <!-- Using the Uploaded Banner Logo -->
+            <img src="./numagna_banner.png" alt="Numagna Technologies Banner" class="mx-auto h-20 md:h-28 object-contain mb-8 filter drop-shadow-lg" onerror="this.style.display='none'">
+
+            <h2 class="text-3xl md:text-5xl font-bold text-white mb-6 mt-4">Join the Next Evolution.</h2>
+            <p class="text-gray-400 text-lg mb-10 max-w-2xl mx-auto">
+                Whether you need the unmatched intelligence of Sidekick or the critical reliability of Signal Sentinel, Numagna is building the tools of tomorrow.
+            </p>
+            
+            <form class="max-w-md mx-auto flex flex-col sm:flex-row gap-3">
+                <input type="email" placeholder="Enter your email" class="flex-1 bg-black border border-white/20 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-brand-blue transition">
+                <button type="submit" class="bg-brand-blue text-white font-semibold px-6 py-3 rounded-lg hover:bg-brand-light transition duration-300">
+                    Stay Updated
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-black py-10 border-t border-white/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-6">
+            <div class="flex items-center">
+                <img src="./numagna_master_logov_v1_2_duo_tone_blue.png" alt="Logo" class="h-6 w-auto mr-2 grayscale opacity-50" onerror="this.style.display='none'">
+                <span class="text-gray-500 text-sm font-semibold tracking-widest">NUMAGNA TECHNOLOGIES</span>
+            </div>
+            
+            <div class="flex space-x-6">
+                <a href="#" class="text-gray-600 hover:text-white transition text-sm">Privacy Policy</a>
+                <a href="#" class="text-gray-600 hover:text-white transition text-sm">Terms of Service</a>
+                <a href="#" class="text-gray-600 hover:text-white transition text-sm">Support</a>
+            </div>
+
+            <p class="text-gray-600 text-sm">
+                &copy; 2026 Numagna Technologies. All rights reserved.
+            </p>
+        </div>
+    </footer>
+
+    <!-- Interactive Scripts -->
+    <script>
+        // Initialize Lucide Icons
+        lucide.createIcons();
+
+        // Mobile Menu Toggle
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+
+        btn.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+        });
+
+        // Add blur effect to navbar on scroll
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 10) {
+                nav.style.backgroundColor = 'rgba(0, 0, 0, 0.8)';
+            } else {
+                nav.style.backgroundColor = 'rgba(0, 0, 0, 0.6)';
+            }
+        });
+    </script>
 </body>
 </html>
