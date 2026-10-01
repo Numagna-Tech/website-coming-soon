@@ -1,0 +1,6 @@
+# Send the Canadian domain (with and without www) permanently to the primary domain.
+# The path is preserved, e.g. numagna.ca/signalsentinel -> numagnatech.com/signalsentinel
+http://numagna.ca/*        https://numagnatech.com/:splat  301!
+https://numagna.ca/*       https://numagnatech.com/:splat  301!
+http://www.numagna.ca/*    https://numagnatech.com/:splat  301!
+https://www.numagna.ca/*   https://numagnatech.com/:splat  301!
